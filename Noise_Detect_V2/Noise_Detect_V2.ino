@@ -95,6 +95,9 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   
+  
+  Serial.println("START MAIN LOOP");
+  
   //START TALKING WITH GPRS SHIELD &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
   
        //Read for new byte on serial hardware, and write them on NewSoftSerial.
@@ -216,7 +219,7 @@ void serialswread()
 
 bool sendDataFn(int percUnder, int percWarn, int percExceeded)
 {
-    
+   Serial.println('SENDING...');
     String jsonStr = "percExceeded="  + String(percExceeded);
     jsonStr += "&percWarn="  + String(percWarn);
     jsonStr += "&percUnder="  + String(percUnder);
