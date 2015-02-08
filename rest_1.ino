@@ -12,19 +12,16 @@
   int lengthData;
   char inSerial[50];
   int i=0;
-  boolean started=false;
+  boolean gprsStarted=false;
   
+    
   //SET the REST URL & PATH HERE
-  //char* url = "iot-pay.herokuapp.com/device";
-  char* url = "2cc2bd8a.ngrok.com";
-  char* path = "/logs/test";
+  char* url = "iot-pay.herokuapp.com";
+//  char* url = "2cc2bd8a.ngrok.com";
+  char* path = "/logs/IoT/EPA-Monitor";
 
 // start GPRS declarations
 // ########################################################################################################################
-
-
-
-
 
 
 void setup()
@@ -38,20 +35,20 @@ void setup()
       
      //Start configuration to GPRS shield
      if (gsm.begin(4800)) {
-          Serial.println("GPRS Status: READY");
+          //Serial.println("GPRS Status: READY");
           gprsStarted=true;
      } 
      else {
-       Serial.println("GPRS Status: ERROR");
+       //Serial.println("GPRS Status: ERROR");
      }
 
      if(gprsStarted) {
      
        if (inet.attachGPRS("mdata.net.au", "", "")){
-               Serial.println("status=CONNECTED");
+               //Serial.println("status=CONNECTED");
           }
           else {
-            Serial.println("status=ERROR");
+            //Serial.println("status=ERROR");
           }
           delay(200);
           
@@ -61,8 +58,10 @@ void setup()
           int percUnder      = 80;
           int percWarn       = 15;
           int percExceeded   = 5;          
+          
+          
           sendDataFn(percUnder, percWarn, percExceeded);
-          Serial.println("end sendData");
+          //Serial.println("end sendData");
      }
 
       // end GPRS setup code
@@ -127,9 +126,6 @@ void serialswread()
 
 // end GPRS helper functions
 // ########################################################################################################################
-
-
-
 
 
 // ########################################################################################################################
