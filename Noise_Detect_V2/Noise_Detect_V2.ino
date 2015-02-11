@@ -96,7 +96,7 @@ void setup() {
 void loop() {
   
   
-  Serial.println("START MAIN LOOP");
+//  Serial.println("START MAIN LOOP");
   
   //START TALKING WITH GPRS SHIELD &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
   
@@ -191,6 +191,7 @@ void loop() {
   noiseCounter[1] = 0;
   noiseCounter[2] = 0;
 
+  Serial.println();
   Serial.println(noiseLowPC);
   Serial.println(noiseMediumPC);
   Serial.println(noiseHighPC);
@@ -219,7 +220,7 @@ void serialswread()
 
 bool sendDataFn(int percUnder, int percWarn, int percExceeded)
 {
-   Serial.println('SENDING...');
+//   Serial.println('SENDING...');
     String jsonStr = "percExceeded="  + String(percExceeded);
     jsonStr += "&percWarn="  + String(percWarn);
     jsonStr += "&percUnder="  + String(percUnder);
